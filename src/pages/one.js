@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component, useState } from 'react';
 
 /**
  * 
@@ -16,9 +16,13 @@ import React from 'react';
 
 export default function One() {
 
+  const [count, setCount] = useState(0);
+
   return (
     <div>
-        Question one
+      Question one
+      <h1>Counter: {count}</h1>
+      <button onClick={() => setCount(count + 1)}>Click here to increment the counter.</button>
     </div>
   );
 }

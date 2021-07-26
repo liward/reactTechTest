@@ -12,23 +12,27 @@ import React, { useEffect } from 'react';
 
 const Two = () => {
 
-    useEffect(() => {
-        const onScroll = (e) => {
-          const yPos = window.pageYOffset;
-          console.log(yPos)
-        };
+  useEffect(() => {
+    const onScroll = (e) => {
+      const scrollDiv = document.getElementById('scroll_log').parentElement;
+      const yPos = scrollDiv.scrollTop;
+      console.log(yPos)
+    };
 
-        window.addEventListener("scroll", onScroll);
-    
-        return () => window.removeEventListener("scroll", onScroll);;
-      }, []);
+    //TODO: look at this
+    const scrollDiv = document.getElementById('scroll_log').parentElement;
+
+    scrollDiv.addEventListener("scroll", onScroll);
+
+    return () => scrollDiv.removeEventListener("scroll", onScroll);;
+  }, []);
 
   return (
-    <div style={{height: "150vh"}}>
-        <div style={{height: "50vh", width: "100px", overflow: "auto"}}>
-            <div id="scroll_log" style={{height: "200vh", backgroundColor: "green"}}>
-            </div>
+    <div style={{ height: "150vh" }}>
+      <div style={{ height: "50vh", width: "100px", overflow: "auto" }}>
+        <div id="scroll_log" style={{ height: "200vh", backgroundColor: "green" }}>
         </div>
+      </div>
     </div>
   );
 }

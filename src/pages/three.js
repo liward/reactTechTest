@@ -12,21 +12,21 @@ import React, { useEffect } from 'react';
 
 const Three = () => {
 
-    useEffect(() => {
-        const onScroll = (e) => {
-          const yPos = window.pageYOffset;
-          console.log(yPos)
-        };
+  useEffect(() => {
+    const onScroll = (e) => {
+      const yPos = window.pageYOffset;
+      console.log(yPos)
+    };
 
-        window.addEventListener("scroll", onScroll);
-    
-        return () => window.removeEventListener("scroll", onScroll);;
-      }, []);
+    window.addEventListener("scroll", onScroll);
+
+    return () => window.removeEventListener("scroll", onScroll);;
+  }, []);
 
   return (
-    <div style={{height: "200vh"}}>
-      <div style={{height: "100vh", width: "100%", display: "flex", alignItems: "center", justifyContent: "center"}}>
-        <div id="square" style={{height: "5rem", width: "5rem", backgroundColor:"green"}} />
+    <div style={{ height: "200vh" }}>
+      <div style={{ height: "100vh", width: "100%", display: "flex", alignItems: "center", justifyContent: "center" }}>
+        <div id="square" style={{ height: "5rem", width: "5rem", backgroundColor: "green" }} />
       </div>
     </div>
   );
