@@ -14,17 +14,15 @@ const Two = () => {
 
   useEffect(() => {
     const onScroll = (e) => {
-      const scrollDiv = document.getElementById('scroll_log').parentElement;
-      const yPos = scrollDiv.scrollTop;
-      console.log(yPos)
+      const scrollDiv = document.getElementById('scroll_log').parentElement; // Find scroll_log's parent element and assign it to the const scrollDiv
+      console.log(scrollDiv.scrollTop) // Print the scroll position of scrollDiv to the console
     };
 
-    //TODO: look at this
-    const scrollDiv = document.getElementById('scroll_log').parentElement;
+    const scrollDiv = document.getElementById('scroll_log').parentElement; // Assign the scroll_log parent to scrollDiv. I couldn't find a way to make the declaration within onScroll global.
 
-    scrollDiv.addEventListener("scroll", onScroll);
+    scrollDiv.addEventListener("scroll", onScroll); // Add the scroll event listener to the element assigned to scrollDiv, and trigger onScroll when the scrollDiv is scrolled
 
-    return () => scrollDiv.removeEventListener("scroll", onScroll);;
+    return () => scrollDiv.removeEventListener("scroll", onScroll); // Remove the aforementioned event listener on the end of the useEffect
   }, []);
 
   return (

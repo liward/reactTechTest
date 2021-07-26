@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import {ScrollRotate} from "react-scroll-rotate";
 
 /**
  * 
@@ -20,13 +21,17 @@ const Three = () => {
 
     window.addEventListener("scroll", onScroll);
 
-    return () => window.removeEventListener("scroll", onScroll);;
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // For this task, I imported the react-scroll-rotate library, which provides an easy method to rotate elements based on the position of a scroll position.
+  // I figured that the existing library code would be more more robust than a custom implementation written by me.
+  // Here is the link to the library I used: https://bestofreactjs.com/repo/giladk-react-scroll-rotate-react-ui-animation
+
   return (
-    <div style={{ height: "200vh" }}>
-      <div style={{ height: "100vh", width: "100%", display: "flex", alignItems: "center", justifyContent: "center" }}>
-        <div id="square" style={{ height: "5rem", width: "5rem", backgroundColor: "green" }} />
+    <div style={{ height: "200vh", overflow: "hidden" }}>
+      <div style={{ height: "100vh", width: "100%", display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden", position: "fixed"}}>
+        <ScrollRotate><div id="square" style={{ height: "5rem", width: "5rem", backgroundColor: "green" }} /></ScrollRotate>
       </div>
     </div>
   );
